@@ -27,9 +27,35 @@
 <button class="cart" onclick="window.location.href='signup.html'">Create Account</button>
 
 </div>
-
 <script type="module">
-  // Yahan poora Firebase login code hoga
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDOJwiVff2D0KhfH3P14NT2q5c8dqLg9l8",
+  authDomain: "ms-shopping-30823.firebaseapp.com",
+  projectId: "ms-shopping-30823",
+  storageBucket: "ms-shopping-30823.firebasestorage.app",
+  messagingSenderId: "119548068283",
+  appId: "1:119548068283:web:4751f1df379b13fe76c49e"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.loginUser = function () {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      alert("Login Successful!");
+      window.location.href = "index.html";
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+};
 </script>
 
 </body>
