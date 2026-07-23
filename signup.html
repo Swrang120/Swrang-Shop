@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up - MS Shopping</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+<div class="logo">🛍️ MS Shopping</div>
+</header>
+
+<h2 class="title">Create Account</h2>
+
+<div class="product">
+
+<input type="email" id="email" placeholder="Email"><br><br>
+
+<input type="password" id="password" placeholder="Password"><br><br>
+
+<button class="buy" onclick="signupUser()">Create Account</button>
+
+<p>Already have an account?</p>
+
+<button class="cart" onclick="window.location.href='login.html'">Login</button>
+
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDOJwiVff2D0KhfH3P14NT2q5c8dqLg9l8",
+  authDomain: "ms-shopping-30823.firebaseapp.com",
+  projectId: "ms-shopping-30823",
+  storageBucket: "ms-shopping-30823.firebasestorage.app",
+  messagingSenderId: "119548068283",
+  appId: "1:119548068283:web:4751f1df379b13fe76c49e"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.signupUser = function () {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      alert("Account Created Successfully!");
+      window.location.href = "login.html";
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+};
+</script>
+
+</body>
+</html>
