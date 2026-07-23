@@ -3,31 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MS Shopping - Cart</title>
+<title>My Cart - MS Shopping</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header class="navbar">
-<div class="logo">🛍️ MS Shopping</div>
+    <div class="logo">🛒 My Cart</div>
 </header>
 
-<h2 class="title">🛒 My Cart</h2>
+<h2 class="title">Shopping Cart</h2>
 
-<div class="product">
+<div id="cart-items"></div>
 
-<h3>Your cart is empty.</h3>
+<h2 id="total" class="title"></h2>
 
-<p>Add products to continue shopping.</p>
+<div style="padding:15px;">
+    <button class="buy" onclick="window.location.href='checkout.html'">
+        Proceed to Checkout
+    </button>
 
-<button onclick="window.location.href='index.html'">
-Continue Shopping
-</button>
-
+    <button class="cart" onclick="clearCart()">
+        Clear Cart
+    </button>
 </div>
 
-<script src="script.js"></script>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let cartContainer = document.getElementById("cart-items");
+let total = 0;
+
+if(cart.length === 0){
+    cartContainer.innerHTML = "<h3 style='text-align:center'>🛒 Your Cart is Empty</h3>";
+}else{
+
+cart.forEach(function(item,index){
+
+let price = Number(item.price.replace(/[₹,]/g,""));
+
+total += price;
+
+cartContainer.innerHTML += `
+<div class="product">
+<h3>${item.product}</h3>
+<p class="price">${item.price}</p>
+<button class="cart" onclick="removeItem(${index})">Remove</button>
+</div>
+`;
+
+});
+
+document.getElementById("total").innerHTML="Total : ₹"+total.toLocaleString();
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+location.reload();
+
+}
+
+function clearCart(){
+
+localStorage.removeItem("cart");
+
+location.reload();
+
+}
+</script>
 
 </body>
 </html>
