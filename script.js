@@ -4,6 +4,7 @@ function shopNow() {
   });
 }
 
+// Search
 const search = document.querySelector(".search");
 
 if (search) {
@@ -13,28 +14,38 @@ if (search) {
 
     products.forEach(function (item) {
       let text = item.innerText.toLowerCase();
-
-      if (text.includes(value)) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
+      item.style.display = text.includes(value) ? "" : "none";
     });
   });
 }
 
-const cartButtons = document.querySelectorAll(".cart");
+// Add To Cart
+document.querySelectorAll(".cart").forEach(function(button){
 
-cartButtons.forEach(function(button){
   button.addEventListener("click", function(){
-    alert("✅ Product Added to Cart");
+
+    const product = this.parentElement.querySelector("h3").innerText;
+    const price = this.parentElement.querySelector(".price").innerText;
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({
+      product: product,
+      price: price
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(product + " Added To Cart");
   });
+
 });
 
-const buyButtons = document.querySelectorAll(".buy");
+// Buy Now
+document.querySelectorAll(".buy").forEach(function(button){
 
-buyButtons.forEach(function(button){
   button.addEventListener("click", function(){
     window.location.href = "checkout.html";
   });
+
 });
