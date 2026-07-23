@@ -127,3 +127,23 @@ cursor:pointer;
   background:#009933;
   color:white;
 }
+.product{
+    transition:0.3s;
+}
+
+.product:hover{
+    transform:translateY(-8px);
+}
+
+.buy{
+    background:#009933;
+    color:white;
+}
+
+.buy:hover{
+    background:#007722;
+}
+
+.cart:hover{
+    background:#e68900;
+}
