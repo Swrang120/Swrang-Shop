@@ -80,3 +80,20 @@ window.location.href="index.html";
 
 </body>
 </html>
+<h2>Pay Using UPI</h2>
+
+<div class="payment-box">
+  <p><b>Navi UPI:</b> swrangboro48@nyes</p>
+  <p><b>PhonePe UPI:</b> swrangboro4739@axl</p>
+
+  <button class="buy" onclick="copyUPI()">
+    Copy UPI ID
+  </button>
+</div>
+
+<script>
+function copyUPI(){
+  navigator.clipboard.writeText("swrangboro48@nyes");
+  alert("UPI ID Copied");
+}
+</script>
