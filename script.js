@@ -1,3 +1,3 @@
 function shopNow(){
-    alert("Welcome to Swrang Shop");
+alert("Welcome To Swrang Shop");
 }
