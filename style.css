@@ -206,3 +206,24 @@ text-align:center;
 font-weight:bold;
 font-size:20px;
 }
+.checkout{
+padding:20px;
+max-width:500px;
+margin:auto;
+}
+
+.checkout input,
+.checkout textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:16px;
+box-sizing:border-box;
+}
+
+.checkout textarea{
+height:100px;
+resize:none;
+}
