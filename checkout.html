@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Checkout - MS Shopping</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <header class="navbar">
-    <div class="logo">🛍️ MS Shopping</div>
+<div class="logo">🛍️ MS Shopping</div>
 </header>
+
 
 <h2 class="title">Checkout</h2>
 
+
 <div class="checkout">
 
-<h3>Delivery Address</h3>
+
+<h3>Delivery Details</h3>
+
 
 <input type="text" id="name" placeholder="Full Name">
 
@@ -32,14 +40,18 @@
 <input type="text" placeholder="PIN Code">
 
 
+
 <h3>Payment Method</h3>
+
 
 <label>
 <input type="radio" name="pay" value="upi">
  UPI Payment (Advance ₹100)
 </label>
 
+
 <br><br>
+
 
 <label>
 <input type="radio" name="pay" value="cod">
@@ -47,45 +59,81 @@
 </label>
 
 
-<div id="upiBox" style="display:none; margin-top:20px;">
 
-<h3>Pay Using UPI</h3>
+<div id="upiBox" style="display:none;">
+
+
+<h3>UPI Payment</h3>
+
 
 <p><b>Navi UPI:</b> swrangboro48@nyes</p>
 
 <p><b>PhonePe UPI:</b> swrangboro4739@axl</p>
 
+
 <button class="buy" onclick="copyUPI()">
 Copy UPI ID
 </button>
 
+
+<br><br>
+
+
+<input type="text" id="utr" placeholder="Enter UTR / Transaction ID">
+
+
+<button class="buy" onclick="submitPayment()">
+Submit Payment Verification
+</button>
+
+
 </div>
 
 
+
 <br>
+
 
 <button class="buy" onclick="placeOrder()">
 Place Order
 </button>
 
 
+
 </div>
+
 
 
 <script>
 
-let upi = document.querySelector('input[value="upi"]');
-let cod = document.querySelector('input[value="cod"]');
-let box = document.getElementById("upiBox");
+
+let paymentType = "";
+
+let upiBtn = document.querySelector('input[value="upi"]');
+let codBtn = document.querySelector('input[value="cod"]');
+
+let upiBox = document.getElementById("upiBox");
 
 
-upi.onclick=function(){
- box.style.display="block";
+
+upiBtn.onclick=function(){
+
+paymentType="upi";
+
+upiBox.style.display="block";
+
 }
 
-cod.onclick=function(){
- box.style.display="none";
+
+
+codBtn.onclick=function(){
+
+paymentType="cod";
+
+upiBox.style.display="none";
+
 }
+
 
 
 function copyUPI(){
@@ -97,12 +145,38 @@ alert("UPI ID Copied");
 }
 
 
+
+let paymentVerified=false;
+
+
+
+function submitPayment(){
+
+let utr=document.getElementById("utr").value;
+
+
+if(utr==""){
+
+alert("Please enter UTR number");
+
+return;
+
+}
+
+
+paymentVerified=true;
+
+
+alert("Payment details submitted successfully. Waiting for approval.");
+
+}
+
+
+
 function placeOrder(){
 
-let payment=document.querySelector('input[name="pay"]:checked');
 
-
-if(!payment){
+if(paymentType==""){
 
 alert("Please select payment method");
 
@@ -111,22 +185,30 @@ return;
 }
 
 
-if(payment.value=="upi"){
 
-alert("Please complete ₹100 advance payment first.");
+if(paymentType=="upi" && paymentVerified==false){
+
+alert("Please submit UTR verification first");
 
 return;
 
 }
 
 
+
 alert("🎉 Order Placed Successfully!");
+
 
 window.location.href="index.html";
 
+
 }
+
+
 
 </script>
 
+
 </body>
+
 </html>
