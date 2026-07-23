@@ -1,12 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile - MS Shopping</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>👤 My Profile</h1>
-    <p>Welcome to your profile page.</p>
 
-    <a href="index.html">🏠 Back to Home</a>
+<header class="navbar">
+    <div class="logo">🛍️ MS Shopping</div>
+</header>
+
+<div class="product">
+    <h2>👤 My Profile</h2>
+
+    <p><b>Email:</b> <span id="userEmail">Loading...</span></p>
+
+    <button class="buy" onclick="logoutUser()">Logout</button>
+    <br><br>
+
+    <button class="cart" onclick="window.location.href='index.html'">
+        🏠 Back to Home
+    </button>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDOJwiVff2D0KhfH3P14NT2q5c8dqLg9l8",
+  authDomain: "ms-shopping-30823.firebaseapp.com",
+  projectId: "ms-shopping-30823",
+  storageBucket: "ms-shopping-30823.firebasestorage.app",
+  messagingSenderId: "119548068283",
+  appId: "1:119548068283:web:4751f1df379b13fe76c49e"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        document.getElementById("userEmail").innerText = user.email;
+    } else {
+        window.location.href = "login.html";
+    }
+});
+
+window.logoutUser = function () {
+    signOut(auth).then(() => {
+        alert("Logout Successful");
+        window.location.href = "login.html";
+    });
+};
+</script>
+
 </body>
 </html>
