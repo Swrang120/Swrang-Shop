@@ -6,107 +6,127 @@
 <title>Checkout - MS Shopping</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header class="navbar">
-<div class="logo">🛍️ MS Shopping</div>
+    <div class="logo">🛍️ MS Shopping</div>
 </header>
 
 <h2 class="title">Checkout</h2>
 
-<div class="product">
-
-<input type="text" placeholder="Full Name"><br><br>
-
-<input type="tel" placeholder="Mobile Number"><br><br>
-
-<textarea placeholder="Delivery Address"></textarea><br><br>
-
-<h3>Advance Payment Required</h3>
-
-<p>Advance Amount: ₹100</p>
-
-<button class="buy">Pay Advance</button>
-
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout - MS Shopping</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header class="navbar">
-    <div class="logo">💳 Checkout</div>
-</header>
-
 <div class="checkout">
 
-<h2>Delivery Address</h2>
+<h3>Delivery Address</h3>
 
-<input type="text" placeholder="Full Name">
-<input type="tel" placeholder="Mobile Number">
-<textarea placeholder="Full Address"></textarea>
+<input type="text" id="name" placeholder="Full Name">
+
+<input type="tel" id="mobile" placeholder="Mobile Number">
+
+<textarea id="address" placeholder="Full Address"></textarea>
+
 <input type="text" placeholder="City">
+
 <input type="text" placeholder="State">
+
 <input type="text" placeholder="PIN Code">
 
-<h2>Payment Method</h2>
 
-<label><input type="radio" name="pay" checked> Cash On Delivery</label><br><br>
+<h3>Payment Method</h3>
 
-<label><input type="radio" name="pay"> UPI Payment</label><br><br>
-
-<label><input type="radio" name="pay"> Debit / Credit Card</label>
+<label>
+<input type="radio" name="pay" value="upi">
+ UPI Payment (Advance ₹100)
+</label>
 
 <br><br>
 
-<button class="buy" onclick="placeOrder()">Place Order</button>
+<label>
+<input type="radio" name="pay" value="cod">
+ Cash On Delivery
+</label>
+
+
+<div id="upiBox" style="display:none; margin-top:20px;">
+
+<h3>Pay Using UPI</h3>
+
+<p><b>Navi UPI:</b> swrangboro48@nyes</p>
+
+<p><b>PhonePe UPI:</b> swrangboro4739@axl</p>
+
+<button class="buy" onclick="copyUPI()">
+Copy UPI ID
+</button>
 
 </div>
 
+
+<br>
+
+<button class="buy" onclick="placeOrder()">
+Place Order
+</button>
+
+
+</div>
+
+
 <script>
-function placeOrder() {
 
-  let payment = document.querySelector('input[name="pay"]:checked');
+let upi = document.querySelector('input[value="upi"]');
+let cod = document.querySelector('input[value="cod"]');
+let box = document.getElementById("upiBox");
 
-  if (!payment) {
-    alert("Please select a payment method.");
-    return;
-  }
 
-  if (payment.value === "upi") {
-    alert("⚠️ Please complete the UPI payment first.");
-    return;
-  }
-
-  alert("🎉 Order Placed Successfully!");
-  window.location.href = "index.html";
+upi.onclick=function(){
+ box.style.display="block";
 }
+
+cod.onclick=function(){
+ box.style.display="none";
+}
+
+
+function copyUPI(){
+
+navigator.clipboard.writeText("swrangboro48@nyes");
+
+alert("UPI ID Copied");
+
+}
+
+
+function placeOrder(){
+
+let payment=document.querySelector('input[name="pay"]:checked');
+
+
+if(!payment){
+
+alert("Please select payment method");
+
+return;
+
+}
+
+
+if(payment.value=="upi"){
+
+alert("Please complete ₹100 advance payment first.");
+
+return;
+
+}
+
+
+alert("🎉 Order Placed Successfully!");
+
+window.location.href="index.html";
+
+}
+
 </script>
 
 </body>
 </html>
-<h2>Pay Using UPI</h2>
-
-<div class="payment-box">
-  <p><b>Navi UPI:</b> swrangboro48@nyes</p>
-  <p><b>PhonePe UPI:</b> swrangboro4739@axl</p>
-
-  <button class="buy" onclick="copyUPI()">
-    Copy UPI ID
-  </button>
-</div>
-
-<script>
-function copyUPI(){
-  navigator.clipboard.writeText("swrangboro48@nyes");
-  alert("UPI ID Copied");
-}
-</script>
