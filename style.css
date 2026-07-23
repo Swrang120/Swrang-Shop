@@ -147,3 +147,62 @@ cursor:pointer;
 .cart:hover{
     background:#e68900;
 }
+.hero{
+background:linear-gradient(135deg,#009933,#00cc66);
+color:white;
+padding:60px 20px;
+text-align:center;
+border-radius:0 0 25px 25px;
+}
+
+.hero h1{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:20px;
+}
+
+.hero button{
+background:white;
+color:#009933;
+font-weight:bold;
+}
+
+.product{
+transition:0.3s;
+overflow:hidden;
+}
+
+.product img{
+transition:0.3s;
+}
+
+.product:hover img{
+transform:scale(1.08);
+}
+
+.card:hover{
+transform:translateY(-8px);
+transition:0.3s;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+
+.offer{
+background:#ffeb3b;
+padding:15px;
+margin:15px;
+border-radius:10px;
+text-align:center;
+font-weight:bold;
+font-size:20px;
+}
