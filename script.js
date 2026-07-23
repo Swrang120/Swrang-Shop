@@ -22,3 +22,19 @@ if (search) {
     });
   });
 }
+
+const cartButtons = document.querySelectorAll(".cart");
+
+cartButtons.forEach(function(button){
+  button.addEventListener("click", function(){
+    alert("✅ Product Added to Cart");
+  });
+});
+
+const buyButtons = document.querySelectorAll(".buy");
+
+buyButtons.forEach(function(button){
+  button.addEventListener("click", function(){
+    window.location.href = "checkout.html";
+  });
+});
