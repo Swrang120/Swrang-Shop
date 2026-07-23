@@ -1,3 +1,78 @@
+<!-- Customer Support Chat -->
+
+<div class="chat-btn" onclick="openChat()">
+💬
+</div>
+
+<div class="chat-box" id="chatBox">
+
+<div class="chat-header">
+MS Shopping Support 🤖
+<span onclick="closeChat()">✖</span>
+</div>
+
+<div class="chat-body" id="chatBody">
+<p><b>AI:</b> Namaste 🙏 MS Shopping support me aapka swagat hai. Aap apna sawal pooch sakte hain.</p>
+</div>
+
+<input type="text" id="userMsg" placeholder="Type your message...">
+
+<button onclick="sendMsg()">Send</button>
+
+</div>
+
+
+<script>
+
+function openChat(){
+document.getElementById("chatBox").style.display="block";
+}
+
+
+function closeChat(){
+document.getElementById("chatBox").style.display="none";
+}
+
+
+function sendMsg(){
+
+let msg=document.getElementById("userMsg").value.toLowerCase();
+
+let reply="";
+
+if(msg.includes("order")){
+reply="Apna Order ID share karein, hum order status check karne me madad karenge.";
+}
+
+else if(msg.includes("payment") || msg.includes("utr")){
+reply="Payment ke liye UTR number submit karein. Verification ke baad order update hoga.";
+}
+
+else if(msg.includes("return")){
+reply="Return ke liye product details aur order ID share karein.";
+}
+
+else if(msg.includes("hello") || msg.includes("hi")){
+reply="Namaste 🙏 MS Shopping me aapka swagat hai.";
+}
+
+else{
+reply="Kripya apna sawal thoda detail me likhein. Hamari support team madad karegi.";
+}
+
+
+document.getElementById("chatBody").innerHTML +=
+"<p><b>You:</b> "+msg+"</p>";
+
+document.getElementById("chatBody").innerHTML +=
+"<p><b>AI:</b> "+reply+"</p>";
+
+document.getElementById("userMsg").value="";
+
+}
+
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
