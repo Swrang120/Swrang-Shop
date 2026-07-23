@@ -32,3 +32,51 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - MS Shopping</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">💳 Checkout</div>
+</header>
+
+<div class="checkout">
+
+<h2>Delivery Address</h2>
+
+<input type="text" placeholder="Full Name">
+<input type="tel" placeholder="Mobile Number">
+<textarea placeholder="Full Address"></textarea>
+<input type="text" placeholder="City">
+<input type="text" placeholder="State">
+<input type="text" placeholder="PIN Code">
+
+<h2>Payment Method</h2>
+
+<label><input type="radio" name="pay" checked> Cash On Delivery</label><br><br>
+
+<label><input type="radio" name="pay"> UPI Payment</label><br><br>
+
+<label><input type="radio" name="pay"> Debit / Credit Card</label>
+
+<br><br>
+
+<button class="buy" onclick="placeOrder()">Place Order</button>
+
+</div>
+
+<script>
+function placeOrder(){
+alert("🎉 Order Placed Successfully!");
+window.location.href="index.html";
+}
+</script>
+
+</body>
+</html>
