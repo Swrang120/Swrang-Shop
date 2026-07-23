@@ -72,9 +72,22 @@
 </div>
 
 <script>
-function placeOrder(){
-alert("🎉 Order Placed Successfully!");
-window.location.href="index.html";
+function placeOrder() {
+
+  let payment = document.querySelector('input[name="pay"]:checked');
+
+  if (!payment) {
+    alert("Please select a payment method.");
+    return;
+  }
+
+  if (payment.value === "upi") {
+    alert("⚠️ Please complete the UPI payment first.");
+    return;
+  }
+
+  alert("🎉 Order Placed Successfully!");
+  window.location.href = "index.html";
 }
 </script>
 
