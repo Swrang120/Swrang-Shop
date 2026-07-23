@@ -267,7 +267,24 @@ document.getElementById("userMsg").value="";
 <p>Email: support@msshopping.com</p>
 
 <p>© 2026 MS Shopping. All Rights Reserved.</p>
+<h2 class="title">🎵 Listen on Spotify</h2>
 
+<iframe
+style="border-radius:12px"
+src="https://open.spotify.com/embed/artist/50M2IDtlLnOmaDg0vOsoJC?utm_source=generator"
+width="100%"
+height="380"
+frameborder="0"
+allowfullscreen=""
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+</iframe>
+
+<br><br>
+
+<a href="https://open.spotify.com/artist/50M2IDtlLnOmaDg0vOsoJC?si=8xQfX6mURYO-FPcdzs8Jjw&utm_source=copy-link"
+target="_blank">
+<button class="buy">🎧 Open in Spotify</button>
+</a>
 </footer>
 
 <nav class="bottom-nav">
@@ -286,7 +303,6 @@ document.getElementById("userMsg").value="";
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDOJwiVff2D0KhfH3P14NT2q5c8dqLg9l8",
@@ -331,4 +347,3 @@ window.db = db;
 
 </body>
 </html>
-<button onclick="window.location.href='music.html'">🎵<br>Music</button>
