@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         localStorage.setItem("checkoutItems", JSON.stringify(checkoutItems));
       }
-      window.location.href = "checkout.html";
+      window.location.href="payment.html";
     });
   });
 
