@@ -99,8 +99,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }];
 
         localStorage.setItem("checkoutItems", JSON.stringify(checkoutItems));
-      }
-      window.location.href="payment.html";
+
+window.location.href = "address.html";
     });
   });
 
