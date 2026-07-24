@@ -11,18 +11,18 @@
 <header class="navbar">
   <button class="menu-btn" onclick="openMenu()">☰</button>
   <div class="logo">🛍️ MS Shopping</div>
-  <input type="text" class="search" placeholder="Search Products...">
+  <input type="text" class="search" id="searchInput" placeholder="Search Products...">
 </header>
 
 <!-- Side Menu -->
 <div id="sideMenu" class="side-menu">
   <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
-<a href="index.html">🏠 Home</a>
-<a href="wishlist.html">❤️ Wishlist</a>
-<a href="cart.html">🛒 My Cart</a>
-<a href="profile.html">👤 Profile</a>
-<a href="login.html">🔑 Login</a>
-<a href="music.html">🎵 Music</a>
+  <a href="index.html">🏠 Home</a>
+  <a href="wishlist.html">❤️ Wishlist</a>
+  <a href="cart.html">🛒 My Cart</a>
+  <a href="profile.html">👤 Profile</a>
+  <a href="login.html">🔑 Login</a>
+  <a href="music.html">🎵 Music</a>
 </div>
 
 <section class="hero">
@@ -57,38 +57,43 @@
 
 <h2 class="title">🔥 Today's Deals</h2>
 <div class="products">
+  
   <div class="product">
     <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500" alt="iPhone 15 Pro">
     <h3>iPhone 15 Pro</h3>
     <p class="price">₹1,19,999</p>
     <p>⭐⭐⭐⭐⭐ (4.9)</p>
-    <button class="cart">Add To Cart</button>
-    <button class="buy">Buy Now</button>
+    <button class="cart" onclick="addToCart('iPhone 15 Pro', 119999, 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500')">Add To Cart</button>
+    <button class="buy" onclick="buyNow('iPhone 15 Pro', 119999, 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500')">Buy Now</button>
   </div>
+
   <div class="product">
     <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Nike Shoes">
     <h3>Nike Shoes</h3>
     <p class="price">₹4,999</p>
     <p>⭐⭐⭐⭐☆ (4.6)</p>
-    <button class="cart">Add To Cart</button>
-    <button class="buy">Buy Now</button>
+    <button class="cart" onclick="addToCart('Nike Shoes', 4999, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500')">Add To Cart</button>
+    <button class="buy" onclick="buyNow('Nike Shoes', 4999, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500')">Buy Now</button>
   </div>
+
   <div class="product">
     <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Headphones">
     <h3>Wireless Headphones</h3>
     <p class="price">₹2,499</p>
     <p>⭐⭐⭐⭐⭐ (4.8)</p>
-    <button class="cart">Add To Cart</button>
-    <button class="buy">Buy Now</button>
+    <button class="cart" onclick="addToCart('Wireless Headphones', 2499, 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500')">Add To Cart</button>
+    <button class="buy" onclick="buyNow('Wireless Headphones', 2499, 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500')">Buy Now</button>
   </div>
+
   <div class="product">
     <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Smart Watch">
     <h3>Smart Watch</h3>
     <p class="price">₹3,999</p>
     <p>⭐⭐⭐⭐☆ (4.5)</p>
-    <button class="cart">Add To Cart</button>
-    <button class="buy">Buy Now</button>
+    <button class="cart" onclick="addToCart('Smart Watch', 3999, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500')">Add To Cart</button>
+    <button class="buy" onclick="buyNow('Smart Watch', 3999, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500')">Buy Now</button>
   </div>
+
 </div>
 
 <!-- Customer Support Chat Widget -->
