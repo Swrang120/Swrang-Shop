@@ -70,13 +70,16 @@ function openMenu(){
 document.getElementById("sideMenu").style.width="260px";
 }
 
-function closeMenu(){
-document.getElementById("sideMenu").style.width="0";
-}
 function openMenu() {
-  document.getElementById("sideMenu").style.width = "280px";
+    document.getElementById("sideMenu").style.width = "280px";
 }
 
 function closeMenu() {
-  document.getElementById("sideMenu").style.width = "0";
+    document.getElementById("sideMenu").style.width = "0";
+}
+
+function shopNow() {
+    document.querySelector(".products").scrollIntoView({
+        behavior: "smooth"
+    });
 }
