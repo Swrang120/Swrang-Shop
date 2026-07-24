@@ -314,3 +314,44 @@ top:10px;
 right:20px;
 font-size:35px;
 }
+.menu-btn{
+    font-size:28px;
+    background:none;
+    border:none;
+    color:#fff;
+    cursor:pointer;
+}
+
+.side-menu{
+    height:100%;
+    width:0;
+    position:fixed;
+    top:0;
+    left:0;
+    background:#ffffff;
+    overflow-x:hidden;
+    transition:.3s;
+    z-index:9999;
+    padding-top:60px;
+    box-shadow:2px 0 10px rgba(0,0,0,.3);
+}
+
+.side-menu a{
+    display:block;
+    padding:15px 25px;
+    color:#333;
+    text-decoration:none;
+    font-size:18px;
+    border-bottom:1px solid #eee;
+}
+
+.side-menu a:hover{
+    background:#f2f2f2;
+}
+
+.closebtn{
+    position:absolute;
+    top:10px;
+    right:20px;
+    font-size:35px;
+}
