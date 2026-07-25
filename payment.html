@@ -18,86 +18,78 @@
 
 <h2>Delivery Address</h2>
 
-<input type="text" id="name" placeholder="Full Name">
+<div id="addressBox" class="address-box">
 
-<input type="tel" id="mobile" placeholder="Mobile Number">
-
-<textarea id="address" placeholder="Full Address"></textarea>
-
-<input type="text" id="city" placeholder="City">
-
-<input type="text" id="state" placeholder="State">
-
-<input type="number" id="pin" placeholder="PIN Code">
-
-<button class="continue" onclick="showPayment()">
-Continue To Payment
-</button>
+Loading Address...
 
 </div>
-
-
-<div id="paymentBox" style="display:none;">
-
-<div class="payment-card">
-
-<h2>Secure UPI Payment</h2>
-
-<h3>Total Amount</h3>
-
-<h1 id="amount">₹0</h1>
-
-<img src="images/upi-qr.png" class="qr">
-
-<h3>Scan Any UPI App</h3>
-
-<div class="apps">
-
-<span>🟢 GPay</span>
-
-<span>🟣 PhonePe</span>
-
-<span>🔵 Paytm</span>
-
-<span>🟢 Navi</span>
-
-</div>
-
-<h3>UPI ID</h3>
-
-<b>swrangboro48@nyes</b>
 
 <hr>
 
-<h3>Select Payment Method</h3>
+<h2>Order Summary</h2>
 
-<label class="option">
+<div id="orderSummary">
+
+Loading Products...
+
+</div>
+
+<h2>Total Amount</h2>
+
+<h1 id="totalPrice">₹0</h1>
+
+<hr>
+
+<h2>Choose Payment Method</h2>
+
+<label class="method">
+
 <input type="radio" name="pay" checked>
-UPI Payment (Recommended)
+
+UPI Payment ✅
+
 </label>
 
-<label class="option cod">
+<label class="method cod">
+
 <input type="radio" onclick="codMessage()">
+
 Cash On Delivery
-<br>
-<small style="color:red">
+
+<p class="not">
+
 ❌ Not Available In Your Area
-</small>
+
+</p>
+
 </label>
+
+<hr>
+
+<h2>Scan & Pay</h2>
+
+<img
+src="images/upi-qr.png"
+class="qr">
+
+<h3>Navi UPI</h3>
+
+<b>swrangboro48@nyes</b>
+
+<br><br>
 
 <input
 type="text"
 id="utr"
 placeholder="Enter UTR / Transaction ID">
 
-<button class="verify"
+<button
+class="verify"
 onclick="verifyPayment()">
 
 Verify Payment
 
 </button>
-
-</div>
 
 </div>
 
