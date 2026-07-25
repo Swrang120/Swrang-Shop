@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Payment - MS Shopping</title>
+
+<link rel="stylesheet" href="payment.css">
+</head>
+
+<body>
+
+<header class="header">
+<h2>🛍️ MS Shopping</h2>
+</header>
+
+<div class="container">
+
+<h2>Delivery Address</h2>
+
+<input type="text" id="name" placeholder="Full Name">
+
+<input type="tel" id="mobile" placeholder="Mobile Number">
+
+<textarea id="address" placeholder="Full Address"></textarea>
+
+<input type="text" id="city" placeholder="City">
+
+<input type="text" id="state" placeholder="State">
+
+<input type="number" id="pin" placeholder="PIN Code">
+
+<button class="continue" onclick="showPayment()">
+Continue To Payment
+</button>
+
+</div>
+
+
+<div id="paymentBox" style="display:none;">
+
+<div class="payment-card">
+
+<h2>Secure UPI Payment</h2>
+
+<h3>Total Amount</h3>
+
+<h1 id="amount">₹0</h1>
+
+<img src="images/upi-qr.png" class="qr">
+
+<h3>Scan Any UPI App</h3>
+
+<div class="apps">
+
+<span>🟢 GPay</span>
+
+<span>🟣 PhonePe</span>
+
+<span>🔵 Paytm</span>
+
+<span>🟢 Navi</span>
+
+</div>
+
+<h3>UPI ID</h3>
+
+<b>swrangboro48@nyes</b>
+
+<hr>
+
+<h3>Select Payment Method</h3>
+
+<label class="option">
+<input type="radio" name="pay" checked>
+UPI Payment (Recommended)
+</label>
+
+<label class="option cod">
+<input type="radio" onclick="codMessage()">
+Cash On Delivery
+<br>
+<small style="color:red">
+❌ Not Available In Your Area
+</small>
+</label>
+
+<input
+type="text"
+id="utr"
+placeholder="Enter UTR / Transaction ID">
+
+<button class="verify"
+onclick="verifyPayment()">
+
+Verify Payment
+
+</button>
+
+</div>
+
+</div>
+
+<script src="payment.js"></script>
+
+</body>
+</html>
