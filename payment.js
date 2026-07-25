@@ -1,54 +1,78 @@
-function showPayment() {
+// Delivery Address
+let address = JSON.parse(localStorage.getItem("deliveryAddress"));
 
-  let name = document.getElementById("name").value.trim();
-  let mobile = document.getElementById("mobile").value.trim();
-  let address = document.getElementById("address").value.trim();
-  let city = document.getElementById("city").value.trim();
-  let state = document.getElementById("state").value.trim();
-  let pin = document.getElementById("pin").value.trim();
+if(address){
 
-  if (!name || !mobile || !address || !city || !state || !pin) {
-    alert("⚠️ Please fill all delivery details.");
-    return;
-  }
+document.getElementById("addressBox").innerHTML=`
+<b>${address.name}</b><br>
+${address.mobile}<br>
+${address.address}<br>
+${address.city}, ${address.state}<br>
+PIN : ${address.pin}
+`;
 
-  document.querySelector(".container").style.display = "none";
-  document.getElementById("paymentBox").style.display = "block";
-
-  // Cart se total amount nikaalo
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let total = 0;
-
-  cart.forEach(function(item){
-    total += Number(String(item.price).replace(/[₹,]/g,""));
-  });
-
-  document.getElementById("amount").innerText =
-    "₹" + total.toLocaleString();
 }
 
+// Cart Products
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let total = 0;
+
+let html = "";
+
+cart.forEach(function(item){
+
+let price = Number(String(item.price).replace(/[₹,]/g,""));
+
+total += price;
+
+html += `
+<div style="display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid #ddd;">
+
+<div>
+
+<b>${item.product}</b><br>
+
+₹${price.toLocaleString()}
+
+</div>
+
+</div>
+`;
+
+});
+
+document.getElementById("orderSummary").innerHTML = html;
+
+document.getElementById("totalPrice").innerHTML =
+"₹"+total.toLocaleString();
+
 function codMessage(){
-  alert("❌ Cash on Delivery is not available in your area.\n\nPlease use UPI Payment.");
+
+alert("❌ Cash On Delivery is not available in your area.\n\nPlease pay using UPI.");
+
 }
 
 function verifyPayment(){
 
-  let utr = document.getElementById("utr").value.trim();
+let utr=document.getElementById("utr").value.trim();
 
-  if(utr.length < 8){
-    alert("⚠️ Please enter a valid UTR / Transaction ID.");
-    return;
-  }
+if(utr.length<8){
 
-  let orderId = "MS" + Date.now();
+alert("Please enter valid UTR Number.");
 
-  alert(
-    "✅ Payment Verification Submitted!\n\n" +
-    "Order ID: " + orderId +
-    "\n\nThank you for shopping with MS Shopping."
-  );
+return;
 
-  localStorage.removeItem("cart");
+}
 
-  window.location.href = "index.html";
+let orderId="MS"+Date.now();
+
+localStorage.removeItem("cart");
+
+alert(
+"✅ Payment Successful\n\nOrder ID : "+orderId
+);
+
+window.location.href="index.html";
+
 }
