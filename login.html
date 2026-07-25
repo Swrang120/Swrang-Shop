@@ -4,7 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login - MS Shopping</title>
+
 <link rel="stylesheet" href="style.css">
+
+<style>
+.login-box{
+max-width:400px;
+margin:40px auto;
+padding:20px;
+background:#fff;
+border-radius:12px;
+box-shadow:0 0 10px rgba(0,0,0,.15);
+}
+
+.login-box input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:16px;
+box-sizing:border-box;
+}
+
+.login-box button{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+.login{
+background:#0a9f35;
+color:#fff;
+}
+
+.signup{
+background:#2196F3;
+color:#fff;
+}
+
+.forgot{
+background:#ff9800;
+color:#fff;
+}
+</style>
+
 </head>
 <body>
 
@@ -12,84 +60,127 @@
 <div class="logo">🛍️ MS Shopping</div>
 </header>
 
-<h2 class="title">Login</h2>
+<div class="login-box">
 
-<div class="product">
+<h2 align="center">Login</h2>
 
-<input type="email" id="email" placeholder="Email"><br><br>
+<input
+type="email"
+id="email"
+placeholder="Enter Email">
 
-<input type="password" id="password" placeholder="Password"><br><br>
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
 
-<button class="buy" onclick="loginUser()">Login</button>
-
-<p>Don't have an account?</p>
-
-<button class="cart" onclick="window.location.href='signup.html'">Create Account</button>
-<button class="cart" onclick="forgotPassword()">
-Forgot Password?
+<button class="login" onclick="loginUser()">
+Login
 </button>
+
+<button class="signup"
+onclick="location.href='signup.html'">
+Create Account
+</button>
+
+<button class="forgot"
+onclick="forgotPassword()">
+Forgot Password
+</button>
+
 </div>
+
 <script type="module">
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword,
+sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDOJwiVff2D0KhfH3P14NT2q5c8dqLg9l8",
-  authDomain: "ms-shopping-30823.firebaseapp.com",
-  projectId: "ms-shopping-30823",
-  storageBucket: "ms-shopping-30823.firebasestorage.app",
-  messagingSenderId: "119548068283",
-  appId: "1:119548068283:web:4751f1df379b13fe76c49e"
+
+apiKey:"AIzaSyDOJwiVff2D0KhfH3P14NT2q5c8dqLg9l8",
+
+authDomain:"ms-shopping-30823.firebaseapp.com",
+
+projectId:"ms-shopping-30823",
+
+storageBucket:"ms-shopping-30823.firebasestorage.app",
+
+messagingSenderId:"119548068283",
+
+appId:"1:119548068283:web:4751f1df379b13fe76c49e"
+
 };
 
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
 
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+window.loginUser = function(){
 
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      alert("Login Successful!");
-      window.location.href = "index.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-};
-window.forgotPassword = function () {
-  const email = document.getElementById("email").value;
+const email=document.getElementById("email").value.trim();
 
-  if (!email) {
-    alert("Please enter your email first.");
-    return;
-  }
+const password=document.getElementById("password").value.trim();
 
-  sendPasswordResetEmail(auth, email)
-    .then(() => {
-      alert("Password reset email sent. Please check your inbox.");
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-};
+if(email=="" || password==""){
+
+alert("Please enter Email and Password");
+
+return;
+
+}
+
+signInWithEmailAndPassword(auth,email,password)
+
+.then(()=>{
+
+alert("Login Successful");
+
+window.location.href="index.html";
+
+})
+
+.catch((error)=>{
+
+alert(error.message);
+
+});
+
+}
+
+window.forgotPassword=function(){
+
+const email=document.getElementById("email").value.trim();
+
+if(email==""){
+
+alert("Please enter your email.");
+
+return;
+
+}
+
+sendPasswordResetEmail(auth,email)
+
+.then(()=>{
+
+alert("Password reset email sent.");
+
+})
+
+.catch((error)=>{
+
+alert(error.message);
+
+});
+
+}
+
 </script>
- "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
 </body>
 </html>
-window.forgotPassword = function () {
-  const email = document.getElementById("email").value;
-
-  if (!email) {
-    alert("Please enter your email first.");
-    return;
-  }
-
-  sendPasswordResetEmail(auth, email)
-    .then(() => {
-      alert("Password reset email sent. Please check your inbox.");
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-};
