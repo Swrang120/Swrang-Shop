@@ -1,39 +1,104 @@
 import { auth, db } from "./firebase.js";
 
-window.paymentType = "";
-window.paymentVerified = false;
+import {
+  ref,
+  set
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
 
-const upiBtn = document.querySelector('input[value="upi"]');
-const codBtn = document.querySelector('input[value="cod"]');
-const upiBox = document.getElementById("upiBox");
+let paymentType = "";
+let paymentVerified = false;
 
-upiBtn.onclick = () => {
-  paymentType = "upi";
-  upiBox.style.display = "block";
+// Payment Option
+document.querySelector('input[value="upi"]').onclick = function () {
+    paymentType = "UPI";
+    document.getElementById("upiBox").style.display = "block";
 };
 
-codBtn.onclick = () => {
-  paymentType = "cod";
-  upiBox.style.display = "none";
+document.querySelector('input[value="cod"]').onclick = function () {
+    paymentType = "COD";
+    document.getElementById("upiBox").style.display = "none";
 };
 
+// Copy UPI
 window.copyUPI = function () {
-  navigator.clipboard.writeText("swrangboro48@nyes");
-  alert("UPI ID Copied");
+    navigator.clipboard.writeText("swrangboro48@nyes");
+    alert("UPI ID Copied");
 };
 
+// Verify Payment
 window.submitPayment = function () {
-  const utr = document.getElementById("utr").value.trim();
 
-  if (!utr) {
-    alert("Please enter UTR Number");
-    return;
-  }
+    let utr = document.getElementById("utr").value.trim();
 
-  paymentVerified = true;
-  alert("Payment Verification Submitted");
+    if (utr == "") {
+        alert("Enter UTR Number");
+        return;
+    }
+
+    paymentVerified = true;
+    alert("Payment Verification Submitted");
 };
 
+// Place Order
 window.placeOrder = async function () {
-  alert("Next step me Firebase Order Save add karenge.");
+
+    if (paymentType == "") {
+        alert("Select Payment Method");
+        return;
+    }
+
+    if (paymentType == "UPI" && paymentVerified == false) {
+        alert("Submit UTR First");
+        return;
+    }
+
+    const user = auth.currentUser;
+
+    if (!user) {
+        alert("Please Login First");
+        return;
+    }
+
+    // Order ID
+    const orderId =
+        "MS" +
+        Date.now().toString().slice(-8);
+
+    const order = {
+
+        orderId: orderId,
+
+        userId: user.uid,
+
+        email: user.email,
+
+        name: document.getElementById("name").value,
+
+        mobile: document.getElementById("mobile").value,
+
+        address: document.getElementById("address").value,
+
+        city: document.getElementById("city").value,
+
+        state: document.getElementById("state").value,
+
+        pin: document.getElementById("pin").value,
+
+        payment: paymentType,
+
+        status: "Pending",
+
+        date: new Date().toLocaleString()
+
+    };
+
+    await set(
+        ref(db, "orders/" + orderId),
+        order
+    );
+
+    alert("🎉 Order Placed Successfully\n\nOrder ID : " + orderId);
+
+    window.location.href = "orders.html";
+
 };
