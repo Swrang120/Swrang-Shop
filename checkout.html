@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,18 +13,14 @@
 <body>
 
 <header class="navbar">
-<div class="logo">🛍️ MS Shopping</div>
+    <div class="logo">🛍️ MS Shopping</div>
 </header>
-
 
 <h2 class="title">Checkout</h2>
 
-
 <div class="checkout">
 
-
 <h3>Delivery Details</h3>
-
 
 <input type="text" id="name" placeholder="Full Name">
 
@@ -33,182 +28,65 @@
 
 <textarea id="address" placeholder="Full Address"></textarea>
 
-<input type="text" placeholder="City">
+<input type="text" id="city" placeholder="City">
 
-<input type="text" placeholder="State">
+<input type="text" id="state" placeholder="State">
 
-<input type="text" placeholder="PIN Code">
-
-
+<input type="text" id="pin" placeholder="PIN Code">
 
 <h3>Payment Method</h3>
 
-
 <label>
 <input type="radio" name="pay" value="upi">
- UPI Payment (Advance ₹100)
+UPI Payment (Advance ₹100)
 </label>
-
 
 <br><br>
 
-
 <label>
 <input type="radio" name="pay" value="cod">
- Cash On Delivery
+Cash On Delivery
 </label>
-
-
 
 <div id="upiBox" style="display:none;">
 
-
 <h3>UPI Payment</h3>
-
 
 <p><b>Navi UPI:</b> swrangboro48@nyes</p>
 
 <p><b>PhonePe UPI:</b> swrangboro4739@axl</p>
 
-
 <button class="buy" onclick="copyUPI()">
 Copy UPI ID
 </button>
 
-
 <br><br>
 
+<input
+type="text"
+id="utr"
+placeholder="Enter UTR / Transaction ID">
 
-<input type="text" id="utr" placeholder="Enter UTR / Transaction ID">
-
-
-<button class="buy" onclick="submitPayment()">
+<button
+class="buy"
+onclick="submitPayment()">
 Submit Payment Verification
 </button>
 
-
 </div>
-
-
 
 <br>
 
-
-<button class="buy" onclick="placeOrder()">
+<button
+class="buy"
+onclick="placeOrder()">
 Place Order
 </button>
 
-
-
 </div>
 
-
-
-<script>
-
-
-let paymentType = "";
-
-let upiBtn = document.querySelector('input[value="upi"]');
-let codBtn = document.querySelector('input[value="cod"]');
-
-let upiBox = document.getElementById("upiBox");
-
-
-
-upiBtn.onclick=function(){
-
-paymentType="upi";
-
-upiBox.style.display="block";
-
-}
-
-
-
-codBtn.onclick=function(){
-
-paymentType="cod";
-
-upiBox.style.display="none";
-
-}
-
-
-
-function copyUPI(){
-
-navigator.clipboard.writeText("swrangboro48@nyes");
-
-alert("UPI ID Copied");
-
-}
-
-
-
-let paymentVerified=false;
-
-
-
-function submitPayment(){
-
-let utr=document.getElementById("utr").value;
-
-
-if(utr==""){
-
-alert("Please enter UTR number");
-
-return;
-
-}
-
-
-paymentVerified=true;
-
-
-alert("Payment details submitted successfully. Waiting for approval.");
-
-}
-
-
-
-function placeOrder(){
-
-
-if(paymentType==""){
-
-alert("Please select payment method");
-
-return;
-
-}
-
-
-
-if(paymentType=="upi" && paymentVerified==false){
-
-alert("Please submit UTR verification first");
-
-return;
-
-}
-
-
-
-alert("🎉 Order Placed Successfully!");
-
-
-window.location.href="index.html";
-
-
-}
-
-
-
-</script>
-
+<!-- Checkout JavaScript -->
+<script type="module" src="checkout.js"></script>
 
 </body>
-
 </html>
