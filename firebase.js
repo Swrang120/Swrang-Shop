@@ -8,7 +8,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth
 import { getDatabase } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
+  apiKey: AIzaSyDOJwiVff2D0KhfH3P14NT2q5c8dqLg9l8",
   authDomain: "YOUR_PROJECT.firebaseapp.com",
   databaseURL: "YOUR_DATABASE_URL",
   projectId: "YOUR_PROJECT_ID",
