@@ -1,5 +1,5 @@
 // Firebase App
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js"; "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 
 // Firebase Auth
 import { getAuth } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
