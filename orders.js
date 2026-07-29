@@ -23,29 +23,29 @@ auth.onAuthStateChanged((user) => {
             return;
         }
 
-        let html = "";
+        html += `
+<div class="product">
 
-        snapshot.forEach((child) => {
+<img src="${order.image}" alt="${order.product}">
 
-            const order = child.val();
+<h3>${order.product}</h3>
 
-            if (order.userId === user.uid) {
+<p><b>Order ID:</b> ${order.orderId}</p>
 
-                html += `
-                <div class="product">
+<p><b>Price:</b> ₹${order.price}</p>
 
-                <h3>📦 ${order.orderId}</h3>
+<p><b>Name:</b> ${order.name}</p>
 
-                <p><b>Name:</b> ${order.name}</p>
+<p><b>Payment:</b> ${order.payment}</p>
 
-                <p><b>Payment:</b> ${order.payment}</p>
+<p><b>Status:</b> 🟡 ${order.status}</p>
 
-                <p><b>Status:</b> ${order.status}</p>
+<p><b>Date:</b> ${order.date}</p>
 
-                <p><b>Date:</b> ${order.date}</p>
+<button class="buy">Track Order</button>
 
-                </div>
-                `;
+</div>
+`;
 
             }
 
