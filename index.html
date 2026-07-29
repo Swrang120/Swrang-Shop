@@ -8,233 +8,183 @@
 </head>
 <body>
 
-<header class="navbar">
-  <button class="menu-btn" onclick="openMenu()">☰</button>
-  <div class="logo">🛍️ MS Shopping</div>
-  <input type="text" class="search" id="searchInput" placeholder="Search Products...">
-</header>
+  <!-- 1. Header -->
+  <header class="navbar">
+    <button class="menu-btn" onclick="openMenu()">☰</button>
+    <div class="logo">🛍️ MS Shopping</div>
+    <input type="text" class="search" id="searchInput" placeholder="Search Products...">
+  </header>
 
-<!-- Side Menu -->
-<div id="sideMenu" class="side-menu">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
-  <a href="index.html">🏠 Home</a>
-  <a href="wishlist.html">❤️ Wishlist</a>
-  <a href="cart.html">🛒 My Cart</a>
-  <a href="profile.html">👤 Profile</a>
-  <a href="login.html">🔑 Login</a>
-  <a href="music.html">🎵 Music</a>
-</div>
-
-<section class="hero">
-  <h1>Welcome to MS Shopping</h1>
-  <p>India's Trusted Online Shopping Store</p>
-  <button onclick="shopNow()">Shop Now</button>
-</section>
-
-<div class="offer">
-  🔥 Mega Sale - Up To 70% OFF On Mobiles, Fashion & Electronics
-</div>
-
-<h2 class="title">Shop by Category</h2>
-<div class="categories">
-  <div class="card">
-    <img src="https://via.placeholder.com/120" alt="Mobile">
-    <h3>Mobiles</h3>
-  </div>
-  <div class="card">
-    <img src="https://via.placeholder.com/120" alt="Fashion">
-    <h3>Fashion</h3>
-  </div>
-  <div class="card">
-    <img src="https://via.placeholder.com/120" alt="Electronics">
-    <h3>Electronics</h3>
-  </div>
-  <div class="card">
-    <img src="https://via.placeholder.com/120" alt="Shoes">
-    <h3>Shoes</h3>
-  </div>
-</div>
-
-<h2 class="title">🔥 Today's Deals</h2>
-<div class="products">
-  
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500" alt="iPhone 15 Pro">
-    <h3>iPhone 15 Pro</h3>
-    <p class="price">₹1,19,999</p>
-    <p>⭐⭐⭐⭐⭐ (4.9)</p>
-    <button class="cart" onclick="addToCart('iPhone 15 Pro', 119999, 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500')">Add To Cart</button>
-    <button class="buy" onclick="buyNow('iPhone 15 Pro', 119999, 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500')">Buy Now</button>
+  <!-- 2. Side Menu -->
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
+    <a href="index.html">🏠 Home</a>
+    <a href="wishlist.html">❤️ Wishlist</a>
+    <a href="cart.html">🛒 My Cart</a>
+    <a href="profile.html">👤 Profile</a>
+    <a href="login.html">🔑 Login</a>
+    <a href="music.html">🎵 Music</a>
   </div>
 
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Nike Shoes">
-    <h3>Nike Shoes</h3>
-    <p class="price">₹4,999</p>
-    <p>⭐⭐⭐⭐☆ (4.6)</p>
-    <button class="cart" onclick="addToCart('Nike Shoes', 4999, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500')">Add To Cart</button>
-    <button class="buy" onclick="buyNow('Nike Shoes', 4999, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500')">Buy Now</button>
+  <!-- 3. Hero Section -->
+  <section class="hero">
+    <h1>Welcome to MS Shopping</h1>
+    <p>India's Trusted Online Shopping Store</p>
+    <button onclick="shopNow()">Shop Now</button>
+  </section>
+
+  <!-- 4. Offer Banner -->
+  <div class="offer">
+    🔥 Mega Sale - Up To 70% OFF On Mobiles, Fashion & Electronics
   </div>
 
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Headphones">
-    <h3>Wireless Headphones</h3>
-    <p class="price">₹2,499</p>
-    <p>⭐⭐⭐⭐⭐ (4.8)</p>
-    <button class="cart" onclick="addToCart('Wireless Headphones', 2499, 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500')">Add To Cart</button>
-    <button class="buy" onclick="buyNow('Wireless Headphones', 2499, 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500')">Buy Now</button>
+  <!-- 5. Categories Section -->
+  <h2 class="title">Shop by Category</h2>
+  <div class="categories">
+    <div class="card">
+      <img src="https://via.placeholder.com/120" alt="Mobile">
+      <h3>Mobiles</h3>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/120" alt="Fashion">
+      <h3>Fashion</h3>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/120" alt="Electronics">
+      <h3>Electronics</h3>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/120" alt="Shoes">
+      <h3>Shoes</h3>
+    </div>
   </div>
 
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Smart Watch">
-    <h3>Smart Watch</h3>
-    <p class="price">₹3,999</p>
-    <p>⭐⭐⭐⭐☆ (4.5)</p>
-    <button class="cart" onclick="addToCart('Smart Watch', 3999, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500')">Add To Cart</button>
-    <button class="buy" onclick="buyNow('Smart Watch', 3999, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500')">Buy Now</button>
+  <!-- 6. Products Section -->
+  <h2 class="title">🔥 Today's Deals</h2>
+  <div class="products">
+    
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500" alt="iPhone 15 Pro">
+      <h3>iPhone 15 Pro</h3>
+      <p class="price">₹1,19,999</p>
+      <p>⭐⭐⭐⭐⭐ (4.9)</p>
+      <button class="cart" onclick="addToCart('iPhone 15 Pro', 119999, 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500')">Add To Cart</button>
+      <button class="buy" onclick="buyNow('iPhone 15 Pro', 119999, 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500')">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Nike Shoes">
+      <h3>Nike Shoes</h3>
+      <p class="price">₹4,999</p>
+      <p>⭐⭐⭐⭐☆ (4.6)</p>
+      <button class="cart" onclick="addToCart('Nike Shoes', 4999, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500')">Add To Cart</button>
+      <button class="buy" onclick="buyNow('Nike Shoes', 4999, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500')">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Wireless Headphones">
+      <h3>Wireless Headphones</h3>
+      <p class="price">₹2,499</p>
+      <p>⭐⭐⭐⭐⭐ (4.8)</p>
+      <button class="cart" onclick="addToCart('Wireless Headphones', 2499, 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500')">Add To Cart</button>
+      <button class="buy" onclick="buyNow('Wireless Headphones', 2499, 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500')">Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Smart Watch">
+      <h3>Smart Watch</h3>
+      <p class="price">₹3,999</p>
+      <p>⭐⭐⭐⭐☆ (4.5)</p>
+      <button class="cart" onclick="addToCart('Smart Watch', 3999, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500')">Add To Cart</button>
+      <button class="buy" onclick="buyNow('Smart Watch', 3999, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500')">Buy Now</button>
+    </div>
+
   </div>
 
-</div>
+  <!-- 7. Customer Support Chat Box -->
+  <div class="chat-btn" onclick="openChat()">💬</div>
 
-<!-- Customer Support Chat Widget -->
-<div class="chat-btn" onclick="openChat()">💬</div>
-
-<div class="chat-box" id="chatBox" style="display:none;">
-  <div class="chat-header">
-    MS Shopping Support 🤖
-    <span onclick="closeChat()" style="cursor:pointer; float:right;">✖</span>
+  <div class="chat-box" id="chatBox" style="display:none;">
+    <div class="chat-header">
+      MS Shopping Support 🤖
+      <span onclick="closeChat()" style="cursor:pointer; float:right;">✖</span>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <p><b>AI:</b> Namaste 🙏 MS Shopping support me aapka swagat hai. Aap apna sawal pooch sakte hain.</p>
+    </div>
+    <input type="text" id="userMsg" placeholder="Type your message...">
+    <button onclick="sendMsg()">Send</button>
   </div>
-  <div class="chat-body" id="chatBody">
-    <p><b>AI:</b> Namaste 🙏 MS Shopping support me aapka swagat hai. Aap apna sawal pooch sakte hain.</p>
-  </div>
-  <input type="text" id="userMsg" placeholder="Type your message...">
-  <button onclick="sendMsg()">Send</button>
-</div>
 
-<footer>
-  <h3>🛍️ MS Shopping</h3>
-  <p>Fast Delivery | Secure Payment | Easy Returns</p>
-  <p>Email: support@msshopping.com</p>
-  <p>© 2026 MS Shopping. All Rights Reserved.</p>
-  
-  <h2 class="title">🎵 Listen on Spotify</h2>
-  <iframe
-    style="border-radius:12px"
-    src="https://open.spotify.com/embed/artist/50M2IDtlLnOmaDg0vOsoJC?utm_source=generator"
-    width="100%"
-    height="380"
-    frameborder="0"
-    allowfullscreen=""
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-  </iframe>
-  <br><br>
-  <a href="https://open.spotify.com/artist/50M2IDtlLnOmaDg0vOsoJC?si=8xQfX6mURYO-FPcdzs8Jjw&utm_source=copy-link" target="_blank">
-    <button class="buy">🎧 Open in Spotify</button>
-  </a>
-</footer>
+  <!-- 8. Footer -->
+  <footer>
+    <h3>🛍️ MS Shopping</h3>
+    <p>Fast Delivery | Secure Payment | Easy Returns</p>
+    <p>Email: support@msshopping.com</p>
+    <p>© 2026 MS Shopping. All Rights Reserved.</p>
+    
+    <h2 class="title">🎵 Listen on Spotify</h2>
+    <iframe
+      style="border-radius:12px"
+      src="https://open.spotify.com/embed/artist/50M2IDtlLnOmaDg0vOsoJC?utm_source=generator"
+      width="100%"
+      height="380"
+      frameborder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+    <br><br>
+    <a href="https://open.spotify.com/artist/50M2IDtlLnOmaDg0vOsoJC?si=8xQfX6mURYO-FPcdzs8Jjw&utm_source=copy-link" target="_blank">
+      <button class="buy">🎧 Open in Spotify</button>
+    </a>
+  </footer>
 
-<nav class="bottom-nav">
+  <!-- 9. Bottom Navigation -->
+  <nav class="bottom-nav">
     <button onclick="location.href='index.html'">🏠<br>Home</button>
     <button onclick="location.href='wishlist.html'">❤️<br>Wishlist</button>
     <button onclick="location.href='cart.html'">🛒<br>Cart</button>
     <button onclick="location.href='profile.html'">👤<br>Profile</button>
-</nav>
+  </nav>
 
-<script src="script.js"></script>
+  <!-- Single Chat Script Functionality -->
+  <script>
+    function openChat(){
+      document.getElementById("chatBox").style.display="block";
+    }
 
-<script>
-function openChat(){
-  document.getElementById("chatBox").style.display="block";
-}
+    function closeChat(){
+      document.getElementById("chatBox").style.display="none";
+    }
 
-function closeChat(){
-  document.getElementById("chatBox").style.display="none";
-}
+    function sendMsg(){
+      let msgInput = document.getElementById("userMsg");
+      let msg = msgInput.value.toLowerCase().trim();
+      if(!msg) return;
 
-function sendMsg(){
-  let msgInput = document.getElementById("userMsg");
-  let msg = msgInput.value.toLowerCase().trim();
-  if(!msg) return;
+      let reply = "";
+      if(msg.includes("order")){
+        reply="Apna Order ID share karein, hum order status check karne me madad karenge.";
+      } else if(msg.includes("payment") || msg.includes("utr")){
+        reply="Payment ke liye UTR number submit karein. Verification ke baad order update hoga.";
+      } else if(msg.includes("return")){
+        reply="Return ke liye product details aur order ID share karein.";
+      } else if(msg.includes("hello") || msg.includes("hi")){
+        reply="Namaste 🙏 MS Shopping me aapka swagat hai.";
+      } else {
+        reply="Kripya apna sawal thoda detail me likhein. Hamari support team madad karegi.";
+      }
 
-  let reply = "";
-  if(msg.includes("order")){
-    reply="Apna Order ID share karein, hum order status check karne me madad karenge.";
-  } else if(msg.includes("payment") || msg.includes("utr")){
-    reply="Payment ke liye UTR number submit karein. Verification ke baad order update hoga.";
-  } else if(msg.includes("return")){
-    reply="Return ke liye product details aur order ID share karein.";
-  } else if(msg.includes("hello") || msg.includes("hi")){
-    reply="Namaste 🙏 MS Shopping me aapka swagat hai.";
-  } else {
-    reply="Kripya apna sawal thoda detail me likhein. Hamari support team madad karegi.";
-  }
+      let chatBody = document.getElementById("chatBody");
+      chatBody.innerHTML += "<p><b>You:</b> "+msgInput.value+"</p>";
+      chatBody.innerHTML += "<p><b>AI:</b> "+reply+"</p>";
+      msgInput.value = "";
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+  </script>
 
-  let chatBody = document.getElementById("chatBody");
-  chatBody.innerHTML += "<p><b>You:</b> "+msgInput.value+"</p>";
-  chatBody.innerHTML += "<p><b>AI:</b> "+reply+"</p>";
-  msgInput.value = "";
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
-</script>
-<!-- script.js ko type="module" ke sath load karein -->
-<script type="module" src="script.js"></script>
-
-<script>
-function openChat(){
-  document.getElementById("chatBox").style.display="block";
-}
-
-function closeChat(){
-  document.getElementById("chatBox").style.display="none";
-}
-
-function sendMsg(){
-  let msgInput = document.getElementById("userMsg");
-  let msg = msgInput.value.toLowerCase().trim();
-  if(!msg) return;
-
-  let reply = "";
-  if(msg.includes("order")){
-    reply="Apna Order ID share karein, hum order status check karne me madad karenge.";
-  } else if(msg.includes("payment") || msg.includes("utr")){
-    reply="Payment ke liye UTR number submit karein. Verification ke baad order update hoga.";
-  } else if(msg.includes("return")){
-    reply="Return ke liye product details aur order ID share karein.";
-  } else if(msg.includes("hello") || msg.includes("hi")){
-    reply="Namaste 🙏 MS Shopping me aapka swagat hai.";
-  } else {
-    reply="Kripya apna sawal thoda detail me likhein. Hamari support team madad karegi.";
-  }
-
-  let chatBody = document.getElementById("chatBody");
-  chatBody.innerHTML += "<p><b>You:</b> "+msgInput.value+"</p>";
-  chatBody.innerHTML += "<p><b>AI:</b> "+reply+"</p>";
-  msgInput.value = "";
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
-</script>
-
-<!-- Firebase Module -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-  import { getAuth } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-  import { getDatabase } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyDOJwiVff2D0KhfH3P14NT2q5c8dqLg9l8",
-    authDomain: "ms-shopping-30823.firebaseapp.com",
-    databaseURL: "https://ms-shopping-30823-default-rtdb.firebaseio.com",
-    projectId: "ms-shopping-30823",
-    storageBucket: "ms-shopping-30823.firebasestorage.app",
-    messagingSenderId: "119548068283",
-    appId: "1:119548068283:web:4751f1df379b13fe76c49e",
-    measurementId: "G-185W4CLL57"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  window.auth = getAuth(app);
-  window.db = getDatabase(app);
-</script>
+  <!-- 10. Main JavaScript Entry Point -->
+  <script type="module" src="script.js"></script>
 
 </body>
 </html>
